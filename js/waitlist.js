@@ -2,8 +2,8 @@
 
 // מייל תקין: יש @, ואחריו יש נקודה (למשל name@example.com)
 function isValidEmail(email) {
-  const at = email.indexOf('@');
-  return at > 0 && email.indexOf('.', at + 2) > at + 1 && !email.endsWith('.');
+  const at = email.indexOf("@");
+  return at !== -1 && email.indexOf(".", at + 1) !== -1;
 }
 
 // מחזירה מערך חדש – לא משנה את המערך שהתקבל
