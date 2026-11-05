@@ -7,3 +7,7 @@ test('member pays 280 per ticket plus full fee: 2 tickets cost 584', function ()
 test('regular customer explicitly: 2 tickets cost 724', function () { assertEq(calcTotal(2, false), 724); });
 test('members may buy up to 4', function () { assertEq(maxTickets(true), 4); });
 test('regular customers explicitly may buy up to 8', function () { assertEq(maxTickets(false), 8); });
+test("member above quota (5) is invalid", function () { assertEq(calcTotal(5, true), null); });
+test("zero tickets is invalid", function () { assertEq(calcTotal(0, false), null); });
+test("regular customer above quota (9) is invalid", function () { assertEq(calcTotal(9, false), null); });
+test("member at quota (4) is valid", function () { assertEq(calcTotal(4, true), 1168); });

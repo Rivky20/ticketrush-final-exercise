@@ -10,6 +10,7 @@ function maxTickets(isMember) {
 }
 
 function calcTotal(qty, isMember) {
+  if (!Number.isInteger(qty) || qty < 1 || qty > maxTickets(isMember)) return null;
   const ticketPrice = isMember ? TICKET_PRICE * (1 - MEMBER_DISCOUNT) : TICKET_PRICE;
   return qty * (ticketPrice + SERVICE_FEE);
 }
